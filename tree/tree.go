@@ -1,4 +1,4 @@
-package node
+package tree
 
 type node struct {
 	id int
@@ -7,4 +7,8 @@ type node struct {
 	prentId int
 	level int
 	originalImageName string
+}
+
+type tree struct {
+	 nodes [] node
 }
