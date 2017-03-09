@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>{{.Title}}</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="../resources/styles.css">
 </head>
 <body>
-<p>{{.Msg}}</p>
 
-<form target="_blank" action="/exec/" enctype="multipart/form-data" method="post">
-    <input type="file" name="imageFile" />
-    <input type="submit" name="button" value="Execute" />
-</form>
+<div class='node'>
+        Текст
+    <input class="hiddenDiv" type="image" src="../resources/plus-icon.png" alt="ОК">
+</div>
+
+<div align="center"  id="dialog" title="Add new node">
+    <form method='post' action='#'>
+        <input type="file" name="imageFile"/>
+        <br/>
+        Name of image<label for="imageName"><input id="imageName" type="text" name="imageName"/></label>
+        <br/>
+        <input type="submit" name="button" value="Add node"/>
+    </form>
+</div>
+
+
+<script>
+    var dialog = $("#dialog").dialog({autoOpen: false});
+    $("input[type=image]").click(function () {
+        dialog.dialog("open");
+    });
+</script>
+
 </body>
 </html>
